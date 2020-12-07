@@ -8,7 +8,7 @@ class Home extends React.Component {
     render() {
       return (
         <div className="recGalleryContainer">
-        <Header titleHeader="Welcome to Recipe Home Page"/>
+        <Header titleHeader="Welcome to Done Deals"/>
           
           <Footer />
         </div>

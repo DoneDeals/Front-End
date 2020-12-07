@@ -1,14 +1,15 @@
 import React from 'react'
 import Footer from "./Footer";
 import Header from "./Header";
-function ContactPage() {
+
+function RegisterPage() {
     return (
         <div className="recGalleryContainer">
-        <Header titleHeader="Contact Page"/>
+        <Header titleHeader="Signup Page"/>
           
           <Footer />
         </div>
     )
 }
 
-export default ContactPage
+export default RegisterPage

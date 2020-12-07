@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 import Footer from "./Footer";
 import Header from "./Header";
 import "../css/product.css";
-function BuyPage() {
+function SellPage() {
     return (
         <div className="recGalleryContainer">
-        <Header titleHeader="Buy Page"/>
+        <Header titleHeader="Sell Page"/>
         <div className="flex-container">
-  <div>Product One</div>
+        <div>Product One</div>
   <div>Product Two</div>
   <div>Product Three</div>  
   <div>Product Four</div>
@@ -18,7 +18,7 @@ function BuyPage() {
 </div>
           <Footer />
         </div>
-            )
+    )
 }
 
-export default BuyPage
+export default SellPage

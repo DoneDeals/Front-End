@@ -6,6 +6,11 @@ import {
   faMoneyBillWaveAlt,
   faHeart,
   faEnvelope,
+  faUserPlus,
+  faSign,
+  faSignOutAlt
+
+
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/footer.css";
 import { Link } from "react-router-dom";
@@ -32,15 +37,33 @@ const Footer = () => (
     
 
     <div className="footerIcons"> 
-    <Link to="/PageoneOne">      
+    <Link to="/PageonePage">      
       <FontAwesomeIcon icon={faHeart} />
       <p className="footerText">Temp</p>
     </Link> </div>
     
     <div className="footerIcons">
-    <Link to="/ContactUs">
+    <Link to="/ContactPage">
       <FontAwesomeIcon icon={faEnvelope} />
       <p className="footerText">CONTACT</p>
+    </Link></div>
+
+    <div className="footerIcons">
+    <Link to="/SigninPage">
+      <FontAwesomeIcon icon={faSign} />
+      <p className="footerText">Signin</p>
+    </Link></div>
+
+    <div className="footerIcons">
+    <Link to="/SignupPage">
+      <FontAwesomeIcon icon={faUserPlus} />
+      <p className="footerText">Signup</p>
+    </Link></div>
+
+    <div className="footerIcons">
+    <Link to="/SignoutPage">
+      <FontAwesomeIcon icon={faSignOutAlt} />
+      <p className="footerText">Signout</p>
     </Link></div>
   </div>
 );

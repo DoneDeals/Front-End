@@ -1,14 +1,14 @@
 import React from 'react'
 import Footer from "./Footer";
 import Header from "./Header";
-function ContactPage() {
+function SigninPage() {
     return (
         <div className="recGalleryContainer">
-        <Header titleHeader="Contact Page"/>
+        <Header titleHeader="Signin Page"/>
           
           <Footer />
         </div>
     )
 }
 
-export default ContactPage
+export default SigninPage
