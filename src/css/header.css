@@ -1,0 +1,14 @@
+.bgHeader {
+   
+    background-image: url(../images/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 150px;
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+  }
