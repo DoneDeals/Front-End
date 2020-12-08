@@ -6,7 +6,10 @@ export default class Header extends Component {
     const titleHeader = this.props.titleHeader;
     return (
       <>
-        <div className="bgHeader"></div>
+      <div className="bgHeaderWrap">
+        <div className="bgHeader">
+        </div>
+        </div>
         <h1>{titleHeader}</h1>
       
       </>

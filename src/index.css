@@ -17,6 +17,7 @@ h1 {
   vertical-align: center;
   height: 33%;
   background-color: rgb(245, 158, 158);
-  width: 100%;
-  font-size: 2rem;
+  width: 75%;
+  margin: 25px auto;
+  font-size: 1.5rem;
 }
