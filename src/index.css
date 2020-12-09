@@ -11,12 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-h1 {
-  text-align: center;
-  vertical-align: center;
-  height: 33%;
-  background-color: rgb(245, 158, 158);
-  width: 100%;
-  font-size: 2rem;
-}
