@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { tables } from '../constants/colors';
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
+import { Table } from 'react-bootstrap'
+// import { tables } from '../constants/colors';
+
 
 const headerStyle = {
   fontSize: '13px',
@@ -31,29 +25,33 @@ class PopulatedTable extends Component {
 
     return (
       <Table selectable={this.props.selectable} style={this.props.style}>
-        <tr>
-          {this.props.columns.map(column => {
-            return(
-              <th key={column.header}>
-                {column.header}
-              </th>
-            )
-          })}
-        </tr>
+        <thead>
+          <tr>
+            {this.props.columns.map(column => {
+              return(
+                <th key={column.header}>
+                  {column.header}
+                </th>
+              )
+            })}
+          </tr>
+        </thead>
 
-        {this.props.data.map((rowData, index) => {        
-          return (
-            <tr key={rowData.id}>
-              {this.props.columns.map((col, idx) => {
-                return (
-                  <td key={col.header + '-' + rowData.id}>
-                    {col.cell(rowData)}
-                  </td>
-                )
-              })}
-            </tr>
-          );
-        })}
+        <tbody>
+          {this.props.data.map((rowData, index) => {        
+            return (
+              <tr key={rowData.id}>
+                {this.props.columns.map((col, idx) => {
+                  return (
+                    <td key={col.header + '-' + rowData.id}>
+                      {col.cell(rowData)}
+                    </td>
+                  )
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
       </Table>
     );
   }
