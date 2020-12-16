@@ -11,7 +11,6 @@ const maxButtons = 5;
 const styles = {
   buttons: {
     float: 'right',
-    // color: colors.veryDarkGrey,
     paddingTop: '.25em',
     textAlign: 'right',
   },
