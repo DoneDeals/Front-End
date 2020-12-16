@@ -1,9 +1,7 @@
-import React from 'react'
-import PopulatedTable from '../components/PopulatedTable';
-import paged from '../components/Pagination';
+import React from 'react';
+import ItemMgmtTable from '../components/ItemMgmtTable';
 
 
-const Table = paged(PopulatedTable);
 
 class ItemMgmtScreen extends React.Component {
 
@@ -12,7 +10,7 @@ class ItemMgmtScreen extends React.Component {
       <div>
         <h1>Item Management Component</h1>
       
-        <Table/>
+        <ItemMgmtTable pageSize={8} loading={true}/>
         {/* <form onSubmit={this.handleSubmit} className="createComment">
           <input value={this.state.user} onChange={this.handleUserChange} placeholder="Your name" type="text"/>
           <input value={this.state.content} onChange={this.handleTextChange} placeholder="Thoughts?" type="text"/>
