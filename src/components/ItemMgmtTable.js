@@ -33,10 +33,10 @@ const dummyData = [
   },
 ];
 
-// const columns = () => {
-//   return [
-const columns = 
-   [
+const columns = () => {
+  return [
+// const columns = 
+  //  [
     {
       header: 'Category',
       cell: row => <div>{row.category}</div>,
@@ -54,7 +54,7 @@ const columns =
     },
 
   ];
-// };
+};
 
 const Table = paged(PopulatedTable);
 
@@ -65,7 +65,7 @@ const ItemMgmtTable = ({
   <div>
     <Table
       pageSize={pageSize}
-      columns={columns}
+      columns={columns()}
       loading={loading}
       dataSelector={dummyData}
       items={3}
