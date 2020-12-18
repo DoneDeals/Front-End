@@ -44,14 +44,14 @@ const paged = Table => {
     render() {
     
       const {
-        last = true,
-        first = true,
-        next = true,
-        prev = true,
-        ellipses = true,
-        buttonComponent,
+        // last = true,
+        // first = true,
+        // next = true,
+        // prev = true,
+        // ellipses = true,
+        // buttonComponent,
         columns,
-        idSelector,
+        // idSelector,
         loading,
         dataSelector,
         items,
@@ -69,7 +69,7 @@ const paged = Table => {
       const tableProps = {
         data: dataSelector,
         columns,
-        idSelector,
+        // idSelector,
       };
       
       return (
@@ -87,8 +87,8 @@ const paged = Table => {
   }
 
   PagedTable.propTypes = {
-    columns: PropTypes.arrayOf(PropTypes.object).isRequired,
-    idSelector: PropTypes.func,
+    // columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+    // idSelector: PropTypes.func,
     // loading: PropTypes.bool,
     dataSelector: PropTypes.array.isRequired,
     items: PropTypes.number,

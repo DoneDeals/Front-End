@@ -33,27 +33,28 @@ const dummyData = [
   },
 ];
 
-const columns = () => {
-  return [
-
+// const columns = () => {
+//   return [
+const columns = 
+   [
     {
       header: 'Category',
-      cell: row => <div>{row.name}</div>,
+      cell: row => <div>{row.category}</div>,
       style: styles.category,
     },
     {
       header: 'Description',
-      cell: row => <div>{row.email}</div>,
+      cell: row => <div>{row.description}</div>,
       style: styles.description,
     },
     {
       header: 'U Price',
-      cell: row => <div>{row.type}</div>,
+      cell: row => <div>{row.uprice}</div>,
       style: styles.uprice,
     },
 
-  ]
-}
+  ];
+// };
 
 const Table = paged(PopulatedTable);
 
@@ -71,3 +72,6 @@ const ItemMgmtTable = ({
     />
   </div>
 );
+
+
+export default ItemMgmtTable;
