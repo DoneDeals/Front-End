@@ -50,6 +50,19 @@ const styles = {
   item: { display: 'inline-block' },
 };
 
+export const DefaultButton = ({ active, ...props }) => {
+  const style = active ? { ...styles.button, ...styles.active } : styles.button;
+  return (
+    <button style={style} type="button" {...props} className="-btn">
+      {props.children}
+    </button>
+  );
+};
+
+const defaultProps = {
+  buttonComponent: DefaultButton,
+};
+
 class PaginationButton extends React.Component {
   handleClick = event => {
     const { disabled, onSelect, eventKey } = this.props;
@@ -65,11 +78,12 @@ class PaginationButton extends React.Component {
 
   render() {
     const {
-      // buttonComponent: Component,
+      buttonComponent: Component,
       eventKey,
       active,
       ...props
     } = this.props;
+
     return (
       <li style={styles.item}>
         <Component {...props} onClick={this.handleClick} active={active}>
@@ -80,6 +94,6 @@ class PaginationButton extends React.Component {
   }
 }
 
-// PaginationButton.defaultProps = defaultProps;
+PaginationButton.defaultProps = defaultProps;
 
 export default PaginationButton;

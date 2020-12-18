@@ -31,6 +31,51 @@ const dummyData = [
     description: 'Skull headphone',
     uprice: 78.9
   },
+  {
+    category: 'Clothes',
+    description: 'Polo T-shirt',
+    uprice: 12.3
+  },
+  {
+    category: 'Toys',
+    description: 'Lego brick',
+    uprice: 45.6
+  },
+  {
+    category: 'Electronics',
+    description: 'Skull headphone',
+    uprice: 78.9
+  },
+  {
+    category: 'Clothes',
+    description: 'Polo T-shirt',
+    uprice: 12.3
+  },
+  {
+    category: 'Toys',
+    description: 'Lego brick',
+    uprice: 45.6
+  },
+  {
+    category: 'Electronics',
+    description: 'Skull headphone',
+    uprice: 78.9
+  },
+  {
+    category: 'Clothes',
+    description: 'Polo T-shirt',
+    uprice: 12.3
+  },
+  {
+    category: 'Toys',
+    description: 'Lego brick',
+    uprice: 45.6
+  },
+  {
+    category: 'Electronics',
+    description: 'Skull headphone',
+    uprice: 78.9
+  },
 ];
 
 const columns = () => {
@@ -68,7 +113,7 @@ const ItemMgmtTable = ({
       columns={columns()}
       loading={loading}
       dataSelector={dummyData}
-      items={3}
+      items={dummyData.length}
     />
   </div>
 );
