@@ -17,16 +17,10 @@ const cellStyle = {
 
 class PopulatedTable extends Component {
   
-  // getStripedStyle = index => {
-  //   return { background: index % 2 ? tables.stripe : 'white' };
-  // };
-
   render() {
 
     return (
-      // <Table selectable={this.props.selectable} style={this.props.style}>
       <Table>
-        console.log(this.props.columns)
         <thead>
           <tr>
             {this.props.columns.map(column => {
