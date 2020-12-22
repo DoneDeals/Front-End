@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemMgmtTable from '../components/ItemMgmtTable';
 import { Button } from 'react-bootstrap';
+import AddItemsScreen from './AddItemsScreen';
 
 
 class ItemMgmtScreen extends React.Component {
@@ -10,9 +11,11 @@ class ItemMgmtScreen extends React.Component {
       <div>
         <h1>Item Management Component</h1>
       
-        <Button>
+        {/* <Button onClick={this.onButtonClick}>
           Add Item
-        </Button>
+        </Button> */}
+        <AddItemsScreen/>
+        {/* <AddItems></AddItems> */}
 
         <ItemMgmtTable pageSize={3} loading={true}/>
         {/* <form onSubmit={this.handleSubmit} className="createComment">
