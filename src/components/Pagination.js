@@ -213,11 +213,11 @@ const paged = Table => {
   }
 
   PagedTable.propTypes = {
-    // columns: PropTypes.arrayOf(PropTypes.object).isRequired,
-    // loading: PropTypes.bool,
+    columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+    loading: PropTypes.bool,
     dataSelector: PropTypes.array.isRequired,
     items: PropTypes.number,
-    // pageSize: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
   };
 
   return PagedTable;
