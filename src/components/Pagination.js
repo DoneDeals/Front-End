@@ -1,8 +1,5 @@
 import React from 'react';
 import PaginationButton from './PaginationButton';
-// import Loading from '../async/Loading/index';
-// import { ellipsis as ellipsisChar } from '../constants/chars';
-// import colors from '../constants/colors';
 import PropTypes from 'prop-types';
 
 const defaultPage = 1;
@@ -46,7 +43,6 @@ const paged = Table => {
       const { pageSize } = this.props;
       const offset = (pageNumber - 1) * pageSize;
       this.setState({ activePage: pageNumber, offset });
-      // this.props.onFetchData(this.state.limit, offset);
     };
 
     renderButtons(
@@ -144,9 +140,7 @@ const paged = Table => {
         next = true,
         prev = true,
         ellipses = true,
-        // buttonComponent,
         columns,
-        // idSelector,
         loading,
         dataSelector,
         items,
@@ -158,13 +152,11 @@ const paged = Table => {
 
       const buttonProps = {
         onSelect: this.handleOnSelect,
-        // buttonComponent,
       };
 
       const tableProps = {
         data: dataSelector,
         columns,
-        // idSelector,
       };
       
       return (
@@ -222,7 +214,6 @@ const paged = Table => {
 
   PagedTable.propTypes = {
     // columns: PropTypes.arrayOf(PropTypes.object).isRequired,
-    // idSelector: PropTypes.func,
     // loading: PropTypes.bool,
     dataSelector: PropTypes.array.isRequired,
     items: PropTypes.number,

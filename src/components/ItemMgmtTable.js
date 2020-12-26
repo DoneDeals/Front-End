@@ -80,8 +80,6 @@ const dummyData = [
 
 const columns = () => {
   return [
-// const columns = 
-  //  [
     {
       header: 'Category',
       cell: row => <div>{row.category}</div>,

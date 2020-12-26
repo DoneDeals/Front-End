@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap'
-// import { tables } from '../constants/colors';
 
 
 const headerStyle = {

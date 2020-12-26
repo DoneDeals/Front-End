@@ -21,7 +21,6 @@ function AddItemsScreen({ history }) {
 
   function submitMethod(e) {
     e.preventDefault();
-    // console.log('Result: ', category, description, unitPrice);
     setMessage(null);
     dispatch(addItem(category, description, unitPrice));
   }
@@ -72,7 +71,7 @@ function AddItemsScreen({ history }) {
             Add Item
           </Button>
         </Form>
-      )};
+      )}
 
     </FormContainer>
 

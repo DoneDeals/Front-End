@@ -14,20 +14,19 @@ export function addItem(category, description, unitPrice) {
       dispatch({type: ITEM_ADD_ITEM_REQUEST,});
 
       const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
+        headers: {'Content-Type': 'application/json',},
+      };
 
       const { data } = await axios.post(
         '/api/items',
         { category, description, unitPrice },
         config
-      )
+      );
 
       dispatch({type: ITEM_ADD_ITEM_SUCCESS,});
 
-      //This will most likely be linked to table when add is successfull
+      //Do not remove this code yet, 
+      //it will most likely be linked to table when add is successfull
       // dispatch({
       //   type: USER_LOGIN_SUCCESS,
       //   payload: data,
@@ -37,11 +36,10 @@ export function addItem(category, description, unitPrice) {
       //   type: USER_REGISTER_RESET,
       // })
 
-      localStorage.setItem('userAuth', JSON.stringify(data)); //work on this userAuth
+      localStorage.setItem('userAuth', JSON.stringify(data));
     
     } catch (error) {
-      dispatch({type:   ITEM_ADD_ITEM_FAIL, payload: error.response.data.message,
-    });
+      dispatch({type:   ITEM_ADD_ITEM_FAIL, payload: error.response.data.message,});
     }
   }
 
