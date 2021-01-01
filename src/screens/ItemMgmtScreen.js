@@ -17,7 +17,7 @@ class ItemMgmtScreen extends React.Component {
         <AddItemsScreen/>
         {/* <AddItems></AddItems> */}
 
-        <ItemMgmtTable pageSize={3} loading={true}/>
+        <ItemMgmtTable pageSize={3} loading={true} history/>
         {/* <form onSubmit={this.handleSubmit} className="createComment">
           <input value={this.state.user} onChange={this.handleUserChange} placeholder="Your name" type="text"/>
           <input value={this.state.content} onChange={this.handleTextChange} placeholder="Thoughts?" type="text"/>

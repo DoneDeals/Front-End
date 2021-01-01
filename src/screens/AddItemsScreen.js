@@ -12,16 +12,16 @@ function AddItemsScreen({ history }) {
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [unitPrice, setUnitPrice] = useState('');
-  const [message, setMessage] = useState(null)
+  const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.addItem);
   const { userAuth } = useSelector((state) => state.userLogin);
 
-
+console.log('state: ', loading, error);
   function submitMethod(e) {
     e.preventDefault();
-    setMessage(null);
+    setMessage('Adding new item');
     dispatch(addItem(category, description, unitPrice));
   }
 

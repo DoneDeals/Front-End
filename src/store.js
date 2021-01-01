@@ -7,7 +7,7 @@ import {
   userDetailsReducer,
   userUpdateProfileReducer,
 } from './reducers/userReducers'
-import { addItemReducer } from './reducers/itemReducers';
+import { addItemReducer, itemGetDetailsReducer } from './reducers/itemReducers';
 
 // Please add reducers here
 const reducer = combineReducers({
@@ -16,6 +16,7 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
   addItem: addItemReducer,
+  getItemDetails: itemGetDetailsReducer,
 })
 
 const userAuthFromStorage = localStorage.getItem('userAuth')

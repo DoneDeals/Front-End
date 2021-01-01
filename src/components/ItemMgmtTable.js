@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PopulatedTable from '../components/PopulatedTable';
 import paged from '../components/Pagination';
+import getItemDetails from '../actions/itemActions';
 
 
 const styles = {
@@ -77,6 +78,26 @@ const dummyData = [
     uprice: 78.9
   },
 ];
+
+//------------------------------
+
+  // const [name, setName] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [confirmPassword, setConfirmPassword] = useState('')
+  // const [message, setMessage] = useState(null)
+
+  const dispatch = useDispatch();
+
+  const { loading, error, itemDetail } = useSelector((state) => state.getItemDetails);
+
+  const { userAuth } = useSelector((state) => state.userLogin);
+
+  dispatch(getItemDetails());
+  // const { success, failure } = useSelector((state) => state.userUpdateProfile)
+
+//-------------------------------
+
 
 const columns = () => {
   return [
