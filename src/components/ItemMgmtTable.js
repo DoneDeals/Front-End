@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PopulatedTable from '../components/PopulatedTable';
 import paged from '../components/Pagination';
-import getItemDetails from '../actions/itemActions';
+import { getItemDocuments } from '../actions/itemActions';
 
 
 const styles = {
@@ -79,26 +80,6 @@ const dummyData = [
   },
 ];
 
-//------------------------------
-
-  // const [name, setName] = useState('')
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-  // const [confirmPassword, setConfirmPassword] = useState('')
-  // const [message, setMessage] = useState(null)
-
-  const dispatch = useDispatch();
-
-  const { loading, error, itemDetail } = useSelector((state) => state.getItemDetails);
-
-  const { userAuth } = useSelector((state) => state.userLogin);
-
-  dispatch(getItemDetails());
-  // const { success, failure } = useSelector((state) => state.userUpdateProfile)
-
-//-------------------------------
-
-
 const columns = () => {
   return [
     {
@@ -122,20 +103,61 @@ const columns = () => {
 
 const Table = paged(PopulatedTable);
 
-const ItemMgmtTable = ({
-  pageSize,
-  loading,
-}) => (
-  <div>
-    <Table
-      pageSize={pageSize}
-      columns={columns()}
-      loading={loading}
-      dataSelector={dummyData}
-      items={dummyData.length}
-    />
-  </div>
-);
+// const ItemMgmtTable = ({
+//   pageSize,
+//   loading,
+// }) => (
+//   <div>
+//     <Table
+//       pageSize={pageSize}
+//       columns={columns()}
+//       loading={loading}
+//       dataSelector={dummyData}
+//       items={dummyData.length}
+//     />
+//   </div>
+// );
 
+ 
+function ItemMgmtTable( {pageSize, history})  {
+
+  // const [name, setName] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [confirmPassword, setConfirmPassword] = useState('')
+  // const [message, setMessage] = useState(null)
+
+  const dispatch = useDispatch();
+
+  const { loading, error, itemDetail } = useSelector((state) => state.getItemDetails);
+
+  const { userAuth } = useSelector((state) => state.userLogin);
+
+
+  // Fetching user details
+  useEffect(() => {
+
+    if (!userAuth) {
+      history.push('/login')
+    } else {
+      dispatch(getItemDocuments(userAuth))
+    }
+
+  }, [dispatch, history, userAuth])
+
+
+  return (
+    <div>
+      <Table
+        pageSize={pageSize}
+        columns={columns()}
+        loading={loading}
+        dataSelector={dummyData}
+        items={dummyData.length}
+      />
+    </div>
+  );
+
+}
 
 export default ItemMgmtTable;
