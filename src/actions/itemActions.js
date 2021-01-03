@@ -2,8 +2,11 @@ import axios from 'axios'
 import {
   ITEM_ADD_ITEM_REQUEST,
   ITEM_ADD_ITEM_SUCCESS,
-  ITEM_ADD_ITEM_FAIL
-} from '../constants/itemConstants'
+  ITEM_ADD_ITEM_FAIL,
+  ITEM_GET_ITEM_DETAILS_REQUEST,
+  ITEM_GET_ITEM_DETAILS_SUCCESS,
+  ITEM_GET_ITEM_DETAILS_FAIL,
+} from '../constants/itemConstants';
 
 
 export function addItem(category, description, unitPrice) {
@@ -45,35 +48,27 @@ export function addItem(category, description, unitPrice) {
 
 }
 
-//-------------------------------
 
-// export function getItemDetails(userAuth) {
-export function getItemDetails(){
+export function getItemDocuments(userAuth) {
   
   return async function (dispatch) {
     try {
       dispatch({type: ITEM_GET_ITEM_DETAILS_REQUEST,});
 
-      // const config = {
-      //   headers: {
-      //     Authorization: `Bearer ${userAuth.token}`,
-      //   },
-      // };
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userAuth.token}`,
+        },
+      };
 
-      // const { data } = await axios.get('/api/users/profile', config); //SJ5010121 - the endpoint need to change /api/items
       const { data } = await axios.get('/api/items', config);
-
+console.log('data: ', data);
       dispatch({type: ITEM_GET_ITEM_DETAILS_SUCCESS, payload: data});
     
     } catch (error) {
       const message = error.response.data.message
-      // if (message === 'Not authorized, token failed') {
-      //   dispatch(logout())
-      // }
       dispatch({type: ITEM_GET_ITEM_DETAILS_FAIL, payload: message});
     }
   }
 }
-
-//------------------------
 
