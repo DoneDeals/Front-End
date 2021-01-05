@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import Message from '../components/Message'
@@ -7,35 +7,34 @@ import FormContainer from '../components/FormContainer';
 import { addItem } from '../actions/itemActions';
 
 
-function AddItemsScreen({ history }) {
+function AddItemsScreen() {
 
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [unitPrice, setUnitPrice] = useState('');
-  const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.addItem);
-  const { userAuth } = useSelector((state) => state.userLogin);
 
-console.log('AddItemsScreen, history: ', history);
   function submitMethod(e) {
     e.preventDefault();
-    setMessage('Adding new item');
     dispatch(addItem(category, description, unitPrice));
+    setCategory('');
+    setDescription('');
+    setUnitPrice('');
   }
 
   return (
 
     <FormContainer>
       <h2>Add Items</h2>
-      {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       
-      {loading ? (
+      {loading ?
+      (
         <Loader />
-      ) : (
-
+      ) :
+      (
         <Form onSubmit={submitMethod}>
           <Form.Group controlId='category'>
             <Form.Label>Category</Form.Label>
@@ -72,7 +71,6 @@ console.log('AddItemsScreen, history: ', history);
           </Button>
         </Form>
       )}
-
     </FormContainer>
 
   );
