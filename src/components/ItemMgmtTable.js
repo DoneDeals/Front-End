@@ -17,68 +17,6 @@ const styles = {
   },
 };
 
-const dummyData = [
-  {
-    category: 'Clothes',
-    description: 'Polo T-shirt',
-    uprice: 12.3
-  },
-  {
-    category: 'Toys',
-    description: 'Lego brick',
-    uprice: 45.6
-  },
-  {
-    category: 'Electronics',
-    description: 'Skull headphone',
-    uprice: 78.9
-  },
-  {
-    category: 'Clothes',
-    description: 'Polo T-shirt',
-    uprice: 12.3
-  },
-  {
-    category: 'Toys',
-    description: 'Lego brick',
-    uprice: 45.6
-  },
-  {
-    category: 'Electronics',
-    description: 'Skull headphone',
-    uprice: 78.9
-  },
-  {
-    category: 'Clothes',
-    description: 'Polo T-shirt',
-    uprice: 12.3
-  },
-  {
-    category: 'Toys',
-    description: 'Lego brick',
-    uprice: 45.6
-  },
-  {
-    category: 'Electronics',
-    description: 'Skull headphone',
-    uprice: 78.9
-  },
-  {
-    category: 'Clothes',
-    description: 'Polo T-shirt',
-    uprice: 12.3
-  },
-  {
-    category: 'Toys',
-    description: 'Lego brick',
-    uprice: 45.6
-  },
-  {
-    category: 'Electronics',
-    description: 'Skull headphone',
-    uprice: 78.9
-  },
-];
 
 const columns = () => {
   return [
@@ -102,30 +40,8 @@ const columns = () => {
 };
 
 const Table = paged(PopulatedTable);
-
-// const ItemMgmtTable = ({
-//   pageSize,
-//   loading,
-// }) => (
-//   <div>
-//     <Table
-//       pageSize={pageSize}
-//       columns={columns()}
-//       loading={loading}
-//       dataSelector={dummyData}
-//       items={dummyData.length}
-//     />
-//   </div>
-// );
-
  
 function ItemMgmtTable( {pageSize, history})  {
-
-  // const [name, setName] = useState('')
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-  // const [confirmPassword, setConfirmPassword] = useState('')
-  // const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch();
 
@@ -145,15 +61,14 @@ function ItemMgmtTable( {pageSize, history})  {
 
   }, [dispatch, history, userAuth])
 
-
   return (
     <div>
       <Table
         pageSize={pageSize}
         columns={columns()}
         loading={loading}
-        dataSelector={dummyData}
-        items={dummyData.length}
+        dataSelector={itemDetail.data}
+        items={itemDetail.data.length}
       />
     </div>
   );
