@@ -18,7 +18,7 @@ function AddItemsScreen({ history }) {
   const { loading, error } = useSelector((state) => state.addItem);
   const { userAuth } = useSelector((state) => state.userLogin);
 
-console.log('state: ', loading, error);
+console.log('AddItemsScreen, history: ', history);
   function submitMethod(e) {
     e.preventDefault();
     setMessage('Adding new item');
