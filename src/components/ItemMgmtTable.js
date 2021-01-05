@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Message from '../components/Message';
+import Loader from '../components/Loader';
 import PopulatedTable from '../components/PopulatedTable';
 import paged from '../components/Pagination';
 import { getItemDocuments } from '../actions/itemActions';
@@ -17,6 +19,7 @@ const styles = {
   },
 };
 
+const defaultData = { data: [] };
 
 const columns = () => {
   return [
@@ -45,34 +48,41 @@ function ItemMgmtTable( {pageSize, history})  {
 
   const dispatch = useDispatch();
 
-  const { loading, error, itemDetail } = useSelector((state) => state.getItemDetails);
+  const { loading, error, itemDetail = defaultData } = useSelector((state) => state.getItemDetails);
 
   const { userAuth } = useSelector((state) => state.userLogin);
 
-console.log('inside ItemMgmtTable, error is: ', error);
   // Fetching user details
   useEffect(() => {
 
     if (!userAuth) {
-      console.log('Inside if');
-      history.push('/login')
+      history.push('/')
     } else {
-      console.log('Inside else');
       dispatch(getItemDocuments(userAuth))
     }
 
-  }, [dispatch, history, userAuth])
+  }, [dispatch, history, userAuth]);
 
   return (
+
     <div>
-      <Table
-        pageSize={pageSize}
-        columns={columns()}
-        loading={loading}
-        dataSelector={itemDetail.data}
-        items={itemDetail.data.length}
-      />
+      {error && <Message variant='danger'>{error}</Message>}
+      {loading ?
+        (
+          <Loader />
+        ) : 
+        (
+          <Table
+            pageSize={pageSize}
+            columns={columns()}
+            loading={loading}
+            dataSelector={itemDetail.data}
+            items={itemDetail.data.length}
+          />
+        )
+      }
     </div>
+    
   );
 
 }
