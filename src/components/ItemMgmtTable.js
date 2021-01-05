@@ -32,7 +32,7 @@ const columns = () => {
     },
     {
       header: 'U Price',
-      cell: row => <div>{row.uprice}</div>,
+      cell: row => <div>{row.unitPrice}</div>,
       style: styles.uprice,
     },
 
@@ -49,13 +49,15 @@ function ItemMgmtTable( {pageSize, history})  {
 
   const { userAuth } = useSelector((state) => state.userLogin);
 
-
+console.log('inside ItemMgmtTable, error is: ', error);
   // Fetching user details
   useEffect(() => {
 
     if (!userAuth) {
+      console.log('Inside if');
       history.push('/login')
     } else {
+      console.log('Inside else');
       dispatch(getItemDocuments(userAuth))
     }
 
