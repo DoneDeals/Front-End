@@ -2,12 +2,12 @@ import React from 'react';
 import ItemMgmtTable from '../components/ItemMgmtTable';
 
 
-function ItemMgmtScreen() {
+function ItemMgmtScreen({ history }) {
 
   return(
     <div>
       <h1>Item Management Component</h1>
-      <ItemMgmtTable pageSize={3} loading={true} history/>
+      <ItemMgmtTable pageSize={8} history={history}/>
     </div>
   );
 
